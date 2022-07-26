@@ -39,10 +39,6 @@ sudo apt-get install -y kubelet=1.23.0-00 kubeadm=1.23.0-00 kubectl=1.23.0-00
 sudo apt-mark hold kubelet kubeadm kubectl
 echo
 ######################################################################################################
-echo "###############Install the Calico network add-on.#####################################"
-kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
-echo
-######################################################################################################
 echo "################join with control node###############################"
 sudo $WORKER_JOIN
 echo
