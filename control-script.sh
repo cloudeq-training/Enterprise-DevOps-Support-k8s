@@ -1,4 +1,5 @@
 #!/bin/bash
+CONTROL_IP="10.0.0.10"
 echo "#####################e kernel modules and modify some system settings ######################"
 cat << EOF | sudo tee /etc/modules-load.d/containerd.conf
 overlay
@@ -33,7 +34,7 @@ sudo apt-get install -y kubelet=1.23.0-00 kubeadm=1.23.0-00 kubectl=1.23.0-00
 sudo apt-mark hold kubelet kubeadm kubectl
 echo
 echo "############################On the control plane node only############################"
-sudo kubeadm init --pod-network-cidr 192.168.0.0/16 --kubernetes-version 1.23.0
+sudo kubeadm init --pod-network-cidr 192.168.0.0/16 --apiserver-advertise-address=$CONTROL_IP --kubernetes-version 1.23.0
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
