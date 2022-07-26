@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "worker1" do |worker1|
     worker1.vm.box = "ubuntu/focal64"
     worker1.vm.hostname = "k8s-worker1"
-    worker1.vm.network "private_network", ip: "192.168.40.12"
+    worker1.vm.network "private_network", ip: "192.168.36.12"
 	  worker1.vm.provider "virtualbox" do |vb|
      vb.memory = "2560"
 	 vb.cpus = 2
@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "worker2" do |worker2|
     worker2.vm.box = "ubuntu/focal64"
     worker2.vm.hostname = "k8s-worker2"
-    worker2.vm.network "private_network", ip: "192.168.40.13"
+    worker2.vm.network "private_network", ip: "192.168.47.13"
 	  worker2.vm.provider "virtualbox" do |vb|
      vb.memory = "2560"
 	 vb.cpus = 2
